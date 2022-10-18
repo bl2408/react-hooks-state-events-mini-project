@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import Task from "./Task";
 
-function TaskList() {
+function TaskList({tasks, removeTask}) {
+
+  const displayTasks = tasks.map(({text, category})=>{
+    return <Task key={text} text={text} category={category} removeTask={removeTask} />
+  });
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {displayTasks}
     </div>
   );
 }
